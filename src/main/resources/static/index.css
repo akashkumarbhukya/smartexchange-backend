@@ -1,7 +1,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: Roboto, Arial, sans-serif; }
 body { background-color: #f1f3f6; color: #212121; }
 
-/* Persistent Header Styles */
 .fk-header { background-color: #2874f0; color: #fff; padding: 12px 0; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1c5ec4; }
 .header-container { max-width: 1248px; margin: 0 auto; display: flex; align-items: center; gap: 24px; padding: 0 16px; }
 .logo-area { display: flex; flex-direction: column; cursor: pointer; }
@@ -15,7 +14,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .nav-links { display: flex; gap: 32px; align-items: center; font-weight: 500; font-size: 16px; }
 .sub-nav { background: #fff; display: flex; gap: 24px; padding: 12px 40px; font-size: 14px; font-weight: 500; box-shadow: 0 1px 1px 0 rgba(0,0,0,.16); justify-content: center; }
 
-/* Structural Content Container */
 .app-viewport { max-width: 1248px; margin: 24px auto; padding: 0 16px; min-height: 80vh; }
 .view-panel { display: none; }
 .view-panel.active { display: block; }
@@ -31,7 +29,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .search-orders-bar input { flex: 1; border: none; padding: 12px 16px; font-size: 14px; outline: none; }
 .btn-search-orders { background: #2874f0; color: white; border: none; padding: 0 24px; cursor: pointer; }
 
-/* History Card Matrix */
 .order-row-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 4px; padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
 .order-row-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 .item-meta-flex { display: flex; gap: 24px; align-items: flex-start; }
@@ -43,7 +40,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .status-green { color: #26a541; font-weight: 500; }
 .status-sub { font-size: 12px; color: #878787; }
 
-/* Details Architecture Layout */
 .back-nav { margin-bottom: 16px; }
 .btn-text { background: transparent; border: none; color: #2874f0; font-size: 14px; font-weight: 500; cursor: pointer; }
 .btn-text-blue { background: #2874f0; border: none; color: white; font-size: 13px; padding: 8px 16px; font-weight: 500; cursor: pointer; border-radius: 2px; text-transform: uppercase; }
@@ -60,6 +56,7 @@ body { background-color: #f1f3f6; color: #212121; }
 .status-node .dot { width: 12px; height: 12px; background: #e0e0e0; border-radius: 50%; position: absolute; left: -27px; top: 4px; }
 .status-node.done .dot { background: #26a541; }
 .node-content { font-size: 14px; }
+.node-content { font-size: 14px; }
 
 .action-console-box { border-top: 1px solid #f0f0f0; padding-top: 24px; }
 .buttons-flex-row { display: flex; gap: 12px; }
@@ -71,7 +68,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .meta-card h3 { font-size: 14px; color: #878787; text-transform: uppercase; margin-bottom: 12px; }
 .meta-card p { font-size: 14px; }
 
-/* Product Buying Sheet Parameters */
 .buy-layout-grid { display: flex; gap: 32px; background: #fff; padding: 24px; border-radius: 2px; box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
 .image-preview-pane { flex: 1; text-align: center; border: 1px solid #f0f0f0; padding: 16px; display: flex; align-items: center; justify-content: center; background: #fafafa; }
 .image-preview-pane img { max-width: 100%; max-height: 400px; object-fit: contain; }
@@ -95,7 +91,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .btn-buy-action.confirm { background: #ff9f00; color: #fff; }
 .btn-buy-action.cancel { background: #fb641b; color: #fff; }
 
-/* 🌟 EXTENDED VIEW 4 HORIZONTAL LAYOUT STYLES (Flipkart Order Reference Accurate) */
 .meta-columns-grid { display: flex; gap: 16px; margin-bottom: 16px; }
 .meta-row-card { flex: 1; background: #fff; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 2px; min-height: 150px; }
 .meta-row-card h4 { font-size: 14px; color: #212121; font-weight: bold; margin-bottom: 12px; }
@@ -116,7 +111,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .final-price-tag { font-size: 16px; font-weight: bold; margin-top: 6px; color: #212121; }
 .badge-premium-pill { display: inline-block; font-size: 11px; background: #ffebee; color: #e53935; padding: 2px 6px; border-radius: 4px; font-weight: bold; width: fit-content; margin-top: 4px; }
 
-/* Horizontal Stepper Diagram Mapping CSS */
 .horizontal-timeline-wrapper { flex: 1; padding: 20px 40px 0; display: flex; flex-direction: column; position: relative; }
 .timeline-bar-axis { height: 5px; background: #e0e0e0; width: 100%; position: absolute; top: 31px; left: 0; right: 0; z-index: 1; border-radius: 2px; }
 .timeline-fill-progress { height: 100%; background: #26a541; transition: width 0.5s ease; border-radius: 2px; }
@@ -128,7 +122,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .h-label { font-size: 12px; font-weight: 500; color: #878787; margin-bottom: 4px; }
 .h-date { font-size: 11px; color: #878787; }
 
-/* Node Status Coloring Injections */
 .h-node.completed .h-dot { background: #26a541; box-shadow: 0 0 0 2px #26a541; }
 .h-node.completed .h-label { color: #212121; font-weight: 500; }
 
