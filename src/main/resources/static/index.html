@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Exchange Portal</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>Flipkart Order Returns Manager</h1>
+        
+        <div class="order-card">
+            <h3>Item Selected for Return:</h3>
+            <p><strong>Product:</strong> CAMPUS Bold Sneakers For Men</p>
+            <p><strong>Current Selection:</strong> Size 8, White</p>
+            <p class="status-alert">Reason: Incorrect Fit / Size Problem</p>
+            
+            <!-- When clicked, this fires our JS function using the prefix 'CAMPUS' -->
+            <button onclick="checkExchangeOptions('CAMPUS')" class="btn-primary">Process Return & Check Swap Stock</button>
+        </div>
+
+        <div id="exchange-section" class="exchange-box hidden">
+            <h2>Available Smart-Exchange Options</h2>
+            <p class="subtitle">The following matching variants are instantly ready in our warehouse. Swapping keeps your current platform discounts active.</p>
+            <div id="variant-list" class="variant-grid"></div>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
