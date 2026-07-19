@@ -1,4 +1,4 @@
-// High-fidelity item configuration pointing entirely to your local static folder assets
+// Local item configuration architecture mapping to your local assets setup
 const orderHistoryData = [
     {
         id: "CAMPUS", 
@@ -59,15 +59,14 @@ let globalActiveProductId = null;
 let selectedExchangeSize = null;
 let selectedExchangeColor = null;
 let currentComputedPrice = 0;
+let baseUpchargePremiumCost = 0; 
 
-// View Panel Switching Engine
 function showPage(pageId) {
     document.querySelectorAll('.view-panel').forEach(view => view.classList.remove('active'));
     document.getElementById(pageId).classList.add('active');
     window.scrollTo(0, 0);
 }
 
-// Render Order History Dashboard View
 function buildOrdersDashboard() {
     const listContainer = document.getElementById("orders-injection-list");
     if (!listContainer) return;
@@ -95,7 +94,6 @@ function buildOrdersDashboard() {
     });
 }
 
-// Launch Product Order Details Panel View
 function launchDetailedView(productId) {
     const matchedRecord = orderHistoryData.find(o => o.id === productId);
     if (!matchedRecord) return;
@@ -110,7 +108,6 @@ function launchDetailedView(productId) {
     showPage("order-details-page");
 }
 
-// Build Variant Selection Options Map Workspace
 function openExchangeVariantWorkspace() {
     const item = orderHistoryData.find(o => o.id === globalActiveProductId);
     if (!item) return;
@@ -118,6 +115,7 @@ function openExchangeVariantWorkspace() {
     selectedExchangeSize = item.currentSize;
     selectedExchangeColor = item.currentColor;
     currentComputedPrice = item.price;
+    baseUpchargePremiumCost = 0;
 
     document.getElementById("exchange-pane-title").innerText = item.title;
     document.getElementById("exchange-pane-price").innerText = `₹${item.price}`;
@@ -125,7 +123,6 @@ function openExchangeVariantWorkspace() {
     document.getElementById("current-color-label").innerText = item.currentColor;
     document.getElementById("price-alert-tag").style.display = "none";
 
-    // Inject Thumbnail Chips Dynamically
     const colorContainer = document.getElementById("color-options-container");
     colorContainer.innerHTML = "";
     item.availableColors.forEach(color => {
@@ -142,7 +139,6 @@ function openExchangeVariantWorkspace() {
         colorContainer.appendChild(imgChip);
     });
 
-    // Inject Size Chips Dynamically
     const sizeContainer = document.getElementById("size-options-container");
     sizeContainer.innerHTML = "";
     item.availableSizes.forEach(size => {
@@ -161,31 +157,71 @@ function openExchangeVariantWorkspace() {
     showPage("exchange-variant-page");
 }
 
-// Compute Client-side Premium Pricing Rules Locally
 function evaluateDynamicPriceRules(item) {
     const priceTextNode = document.getElementById("exchange-pane-price");
     const alertBox = document.getElementById("price-alert-tag");
 
     if (item.id === "CAMPUS" && parseInt(selectedExchangeSize, 10) > 8) {
-        currentComputedPrice = item.price + 50;
+        baseUpchargePremiumCost = 50;
+        currentComputedPrice = item.price + baseUpchargePremiumCost;
         priceTextNode.innerText = `₹${currentComputedPrice}`;
         alertBox.innerText = "+ ₹50 Size Premium Applied";
         alertBox.style.display = "inline-block";
     } else {
+        baseUpchargePremiumCost = 0;
         currentComputedPrice = item.price;
         priceTextNode.innerText = `₹${item.price}`;
         alertBox.style.display = "none";
     }
 }
 
-// Confirm Actions and Route to Horizontal Progress Track Tracker View
+// Redirect Routing Logic based on premium upcharge values
 function finalizeExchangeTransaction() {
     const item = orderHistoryData.find(o => o.id === globalActiveProductId);
     
     if (selectedExchangeSize === item.currentSize && selectedExchangeColor === item.currentColor) {
-        alert("Please select a different size or color variation configuration option to request exchange tracking.");
+        alert("Please select a different variation configuration option to process an exchange request.");
         return;
     }
+
+    // Direct conditional jump: If an extra charge exists, route straight into payments panel layout
+    if (baseUpchargePremiumCost > 0) {
+        launchPaymentGatewayWorkspace();
+    } else {
+        routeStraightToTimelineTrackingPage();
+    }
+}
+
+// Initialize and project total payable mappings inside Payment Gateway layout views
+function launchPaymentGatewayWorkspace() {
+    // Reset selection interface states
+    document.getElementById("cod-radio-input").checked = false;
+    document.getElementById("cod-action-drawer").classList.remove("open");
+
+    // Compute final breakdown tallies (Base Premium + 9 Handling + 9 Platform - 20 Coupon)
+    const overallPayableAmountValue = baseUpchargePremiumCost + 9 + 9 - 20;
+
+    document.getElementById("pay-base-premium").innerText = `₹${baseUpchargePremiumCost}`;
+    document.getElementById("pay-total-payable").innerText = `₹${overallPayableAmountValue}`;
+
+    showPage("payment-gateway-page");
+}
+
+// Triggers accordion drop-down window pane uncollapsing
+function toggleCashOnDeliveryCheckoutPanel() {
+    document.getElementById("cod-radio-input").checked = true;
+    const drawer = document.getElementById("cod-action-drawer");
+    drawer.classList.add("open");
+}
+
+// Completes payment steps and maps horizontal tracker graph details
+function executeOrderFinalizationFromPaymentGateway() {
+    routeStraightToTimelineTrackingPage();
+}
+
+// Internal worker to construct visual horizontal progression tracker view nodes
+function routeStraightToTimelineTrackingPage() {
+    const item = orderHistoryData.find(o => o.id === globalActiveProductId);
 
     document.getElementById("track-product-title").innerText = item.title;
     document.getElementById("track-product-desc").innerText = `Color: ${selectedExchangeColor} | Size: ${selectedExchangeSize}`;
@@ -196,8 +232,8 @@ function finalizeExchangeTransaction() {
     document.getElementById("breadcrumb-id").innerText = `003270${randomSuffix}`;
 
     const premiumBadge = document.getElementById("track-upcharge-badge");
-    if (item.id === "CAMPUS" && parseInt(selectedExchangeSize, 10) > 8) {
-        premiumBadge.innerText = "₹50 Size Upcharge Included";
+    if (baseUpchargePremiumCost > 0) {
+        premiumBadge.innerText = `₹${baseUpchargePremiumCost} Size Upcharge Included`;
         premiumBadge.style.display = "inline-block";
     } else {
         premiumBadge.style.display = "none";

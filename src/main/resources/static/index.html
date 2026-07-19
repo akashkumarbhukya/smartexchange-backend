@@ -20,7 +20,7 @@
                 <button class="search-btn">🔍</button>
             </div>
             <div class="nav-links">
-                <span class="user-profile">Bhukya ▼</span>
+                <span class="user-profile">User ▼</span>
                 <span>Become a Seller</span>
                 <span>More ▼</span>
                 <span class="cart-icon">🛒 Cart <span class="cart-count">1</span></span>
@@ -87,8 +87,8 @@
                 <div class="right-metadata-column">
                     <div class="meta-card">
                         <h3>Delivery Details</h3>
-                        <p><strong>Work</strong> AMMA MENS PG (SLR), near Thatti Bellam, opp...</p>
-                        <p class="sub-txt">Bhukya Akash Kumar 8919687185</p>
+                        <p><strong>Work</strong> Address</p>
+                        <p class="sub-txt">User Name ********89</p>
                     </div>
                 </div>
             </div>
@@ -128,6 +128,77 @@
             </div>
         </div>
 
+        <!-- NEW VIEW 5: FLIPKART PAYMENTS PAGE (TRIGGERS ONLY ON UPCHARGES) -->
+        <div id="payment-gateway-page" class="view-panel">
+            <div class="payment-main-container">
+                <div class="payment-title-row">
+                    <button class="btn-text" onclick="showPage('exchange-variant-page')" style="margin-right:12px;">←</button>
+                    <h2>Complete Payment</h2>
+                    <span class="secure-tag">🔒 100% Secure</span>
+                </div>
+                
+                <div class="payment-split-layout">
+                    <!-- Left Options column -->
+                    <div class="payment-options-sidebar">
+                        <div class="pm-row disabled">
+                            <span class="pm-icon">👍</span>
+                            <div class="pm-info"><strong>Recommended for You</strong></div>
+                        </div>
+                        <div class="pm-row disabled">
+                            <span class="pm-icon">💳</span>
+                            <div class="pm-info"><strong>UPI</strong><p>Pay by any UPI app</p></div>
+                        </div>
+                        <div class="pm-row disabled">
+                            <span class="pm-icon">🎴</span>
+                            <div class="pm-info"><strong>Credit / Debit / ATM Card</strong><p>Add and secure cards as per RBI guidelines</p></div>
+                        </div>
+                        <!-- Functional COD Row Interaction Target -->
+                        <div class="pm-row active-selectable" onclick="toggleCashOnDeliveryCheckoutPanel()">
+                            <span class="pm-icon">💵</span>
+                            <div class="pm-info"><strong>Cash on Delivery</strong></div>
+                            <input type="radio" id="cod-radio-input" name="payment-method-group">
+                        </div>
+                        <!-- Dynamic Checkout Action Area Accordion Drawer -->
+                        <div id="cod-action-drawer" class="cod-collapsible-drawer">
+                            <div class="drawer-inner-content">
+                                <p>Due to handling costs, a nominal fee of <strong>₹9</strong> will be charged for orders placed using this option. Avoid this fee by paying online now.</p>
+                                <button class="btn-place-order-yellow" onclick="executeOrderFinalizationFromPaymentGateway()">Place Order</button>
+                            </div>
+                        </div>
+                        <div class="pm-row disabled">
+                            <span class="pm-icon">🎁</span>
+                            <div class="pm-info"><strong>Have a Flipkart Gift Card?</strong></div>
+                        </div>
+                        <div class="pm-row disabled style-between">
+                            <div class="flex-pm">
+                                <span class="pm-icon">🗓️</span>
+                                <div class="pm-info"><strong>EMI</strong></div>
+                            </div>
+                            <span class="unavailable-txt">Unavailable ❓</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Pricing Context Column -->
+                    <div class="payment-price-sidebar">
+                        <div class="price-breakdown-card">
+                            <h3>PRICE DETAILS</h3>
+                            <hr class="thin-hr">
+                            <div class="price-summary-line"><span>Base Upcharge Premium</span><span id="pay-base-premium">₹0</span></div>
+                            <div class="price-summary-line"><span>Payment Handling Fee</span><span>₹9</span></div>
+                            <div class="price-summary-line"><span>Platform Fee</span><span>₹9</span></div>
+                            <div class="price-summary-line discount-text"><span>Coupons Adjustment Discount</span><span>-₹20</span></div>
+                            <hr class="thin-hr">
+                            <div class="total-amount-line"><strong>Total Payable Amount</strong><strong id="pay-total-payable">₹0</strong></div>
+                            <div class="cashback-banner-pill">
+                                <strong>5% Cashback</strong>
+                                <p>Claim now with dynamic platform benefits</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- VIEW 4: HORIZONTAL FLIPKART STYLE TRACKING PAGE -->
         <div id="exchange-tracking-page" class="view-panel">
             <div class="back-nav" style="display: flex; justify-content: space-between; align-items: center;">
@@ -138,9 +209,9 @@
             <div class="meta-columns-grid">
                 <div class="meta-row-card">
                     <h4>Delivery Address</h4>
-                    <p class="name-highlight">Bhukya Akash Kumar</p>
-                    <p class="address-text">AMMA MENS PG (SLR), near Thatti Bellam, opp Outer Ring Road, Telangana</p>
-                    <p class="phone-text"><strong>Phone number</strong> 8919687185</p>
+                    <p class="name-highlight">User Name</p>
+                    <p class="address-text">Address</p>
+                    <p class="phone-text"><strong>Phone number</strong> ********89</p>
                 </div>
                 <div class="meta-row-card">
                     <h4>Your Rewards</h4>
