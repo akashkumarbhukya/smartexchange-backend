@@ -56,7 +56,6 @@ body { background-color: #f1f3f6; color: #212121; }
 .status-node .dot { width: 12px; height: 12px; background: #e0e0e0; border-radius: 50%; position: absolute; left: -27px; top: 4px; }
 .status-node.done .dot { background: #26a541; }
 .node-content { font-size: 14px; }
-.node-content { font-size: 14px; }
 
 .action-console-box { border-top: 1px solid #f0f0f0; padding-top: 24px; }
 .buttons-flex-row { display: flex; gap: 12px; }
@@ -130,3 +129,44 @@ body { background-color: #f1f3f6; color: #212121; }
 .h-node.active .h-date { color: #212121; font-weight: 500; }
 
 .status-subtext-footer { margin-top: 32px; border-top: 1px solid #f5f5f5; padding-top: 12px; }
+
+/* 💳 VIEW 5: FLIPKART PAYMENTS STYLING */
+.payment-main-container { max-width: 1000px; margin: 0 auto; padding: 16px; border-radius: 4px; }
+.payment-title-row { background: #fff; padding: 16px 24px; display: flex; align-items: center; border-bottom: 1px solid #f0f0f0; border-radius: 4px 4px 0 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.payment-title-row h2 { font-size: 16px; font-weight: 500; color: #878787; text-transform: uppercase; flex: 1; }
+.secure-tag { font-size: 13px; color: #878787; font-weight: 500; }
+
+.payment-split-layout { display: flex; gap: 16px; margin-top: 16px; align-items: flex-start; }
+.payment-options-sidebar { flex: 1.8; background: #fff; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); overflow: hidden; }
+
+.pm-row { display: flex; align-items: center; padding: 20px 24px; border-bottom: 1px solid #f0f0f0; gap: 16px; position: relative; }
+.pm-row.disabled { background: #fafafa; opacity: 0.6; cursor: not-allowed; }
+.pm-row.active-selectable { background: #fff; cursor: pointer; transition: background 0.2s; }
+.pm-row.active-selectable:hover { background: #f5f9ff; }
+.pm-icon { font-size: 20px; color: #2874f0; }
+.pm-info { flex: 1; }
+.pm-info strong { font-size: 14px; color: #212121; display: block; }
+.pm-info p { font-size: 12px; color: #878787; margin-top: 4px; }
+.unavailable-txt { font-size: 12px; color: #878787; }
+.style-between { justify-content: space-between; }
+.flex-pm { display: flex; gap: 16px; align-items: center; }
+
+/* Collapsible COD Confirmation Component */
+.cod-collapsible-drawer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fbfbfb; border-bottom: 1px solid #f0f0f0; }
+.cod-collapsible-drawer.open { max-height: 200px; }
+.drawer-inner-content { padding: 24px 24px 24px 60px; display: flex; flex-direction: column; gap: 16px; }
+.drawer-inner-content p { font-size: 13px; color: #212121; line-height: 1.5; max-width: 450px; }
+.btn-place-order-yellow { background: #ff9f00; color: #fff; border: none; padding: 14px 32px; font-size: 14px; font-weight: bold; border-radius: 2px; cursor: pointer; width: fit-content; text-transform: uppercase; box-shadow: 0 1px 2px rgba(0,0,0,0.1); }
+.btn-place-order-yellow:hover { background: #f29700; }
+
+/* Right Billing Columns styles */
+.payment-price-sidebar { flex: 1; background: #fff; padding: 24px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.price-breakdown-card h3 { font-size: 12px; color: #878787; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 16px; }
+.thin-hr { border: none; border-top: 1px dashed #e0e0e0; margin: 16px 0; }
+.price-summary-line { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 12px; color: #212121; }
+.discount-text { color: #26a541; font-weight: 500; }
+.total-amount-line { display: flex; justify-content: space-between; font-size: 16px; color: #212121; border-top: 1px dashed #e0e0e0; padding-top: 16px; margin-top: 4px; }
+
+.cashback-banner-pill { background: #f4f8ff; border: 1px solid #e0ecff; border-radius: 4px; padding: 12px; margin-top: 24px; }
+.cashback-banner-pill strong { color: #26a541; font-size: 13px; }
+.cashback-banner-pill p { font-size: 12px; color: #666; margin-top: 2px; }
